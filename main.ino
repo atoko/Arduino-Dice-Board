@@ -75,16 +75,16 @@ void requestAnimationFrame(long mtime)
 }
 int getSelectedDice()
 {
-  int dice = checkAndRoll(PINDTWENTY, 20);
-  dice = dice == SWITCH_DEFAULT ? checkAndRoll(PINDTWELVE, 12) : dice;
-  dice = dice == SWITCH_DEFAULT ? checkAndRoll(PINDTEN, 10) : dice;
-  dice = dice == SWITCH_DEFAULT ? checkAndRoll(PINDEIGHT, 8) : dice;
-  dice = dice == SWITCH_DEFAULT ? checkAndRoll(PINDSIX, 6) : dice;
-  dice = dice == SWITCH_DEFAULT ? checkAndRoll(PINDFOUR, 4) : dice;
+  int dice = checkDice(PINDTWENTY, 20);
+  dice = dice == SWITCH_DEFAULT ? checkDice(PINDTWELVE, 12) : dice;
+  dice = dice == SWITCH_DEFAULT ? checkDice(PINDTEN, 10) : dice;
+  dice = dice == SWITCH_DEFAULT ? checkDice(PINDEIGHT, 8) : dice;
+  dice = dice == SWITCH_DEFAULT ? checkDice(PINDSIX, 6) : dice;
+  dice = dice == SWITCH_DEFAULT ? checkDice(PINDFOUR, 4) : dice;
 
-  return current;
+  return dice;
 }
-int checkAndRoll(int pin, int range)
+int checkDice(int pin, int range)
 {
   int switchState = digitalRead(pin); 
   if (switchState == HIGH)
